@@ -1,9 +1,25 @@
-import { TaskDelete } from "./taskDelete";
+import { BotonDelete } from "./botonDelete";
 
-export function TaskList({ taskItems, deleteTask}) {
-  // const handleToggle = (task) => {
-  //   toggleTask(task)
-  // }
+export function TaskList({ taskItems, deleteTask, defaultTasks, toggleTask }) {
+  const handleChekbox = (task) => {
+    toggleTask(task);
+  };
+
+  const defaultTareas = defaultTasks.map((task) => {
+    return (
+      <li key={task.id} className="flex justify-evenly my-3">
+        <div className="my-auto">
+          <input type="checkbox" defaultChecked={false} />
+          <span>{task.name}</span>
+        </div>
+        <BotonDelete
+          task={task}
+          taskItems={taskItems}
+          deleteTask={deleteTask}
+        />
+      </li>
+    );
+  });
 
   return (
     <>
@@ -15,26 +31,34 @@ export function TaskList({ taskItems, deleteTask}) {
                    pt-1 pb-2
                   "
       >
-        {taskItems.map((task) => {
-          return (
-            <div key={task.id} className="flex justify-evenly my-3">
-              <div className="my-auto">
-                <input type="checkbox" defaultChecked={false}/>
-                <span>{task.name}</span>
-              </div>
-              <TaskDelete
-                task={task}
-                taskItems={taskItems}
-                deleteTask={deleteTask}
-              />
-            </div>
-          );
-        })}
+        {taskItems.length ? (
+          taskItems.map((task) => {
+            return (
+              <li key={task.id} className="flex justify-between mx-2 my-3">
+                <div className="my-auto">
+                  <input
+                    type="checkbox"
+                    checked={task.done}
+                    className="mr-2"
+                    onChange={() => handleChekbox(task)}
+                  />
+                  <span>{task.name}</span>
+                </div>
+                <BotonDelete
+                  task={task}
+                  taskItems={taskItems}
+                  deleteTask={deleteTask}
+                />
+              </li>
+            );
+          })
+        ) : (
+          <div>
+            <h1>Tasks de ejemplo. Agregue sus propias tareas</h1>
+            <ul>{defaultTareas}</ul>
+          </div>
+        )}
       </ul>
     </>
   );
 }
-
-// onChange={(task) => handleToggle}
-
-// checked={task.done}

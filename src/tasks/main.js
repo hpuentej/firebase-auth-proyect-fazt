@@ -4,13 +4,14 @@ import { TaskCreator } from "./taskCreator";
 import { TaskList } from "./taskList";
 
 export function ToDo() {
-  // const defaultTasks = [
-  //   { name: "Task 1", done: false, id: 1 },
-  //   { name: "Task 2", done: false, id: 2 },
-  //   { name: "Task 3", done: false, id: 3 },
-  // ];
+  const defaultTasks = [
+    { name: "Task 1", done: false, id: 1 },
+    { name: "Task 2", done: false, id: 2 },
+    { name: "Task 3", done: false, id: 3 },
+  ];
 
   const [taskItems, SetTaskItems] = useState([]);
+
 
   // Create a new task
   function createNewTask(newTask) {
@@ -35,18 +36,18 @@ export function ToDo() {
   function deleteTask(task){
     const newTasks = taskItems.filter((item) => item.id !== task.id);
     SetTaskItems(newTasks);
-  };
+  };  
 
-  // Toggle a task
+  //Toggle a task
 
-  // function toggleTask(task){
-  //   const toggle = taskItems.map(item => {
-  //     const newTaskStatus = {...task, done: !item.done}
-  //   return (newTaskStatus)
-  //   })
-  //   SetTaskItems(toggle)
-  // }
-
+  function toggleTask(task){
+    const toggle = taskItems.map(item => {
+      const newTaskStatus = item.id === task.id?{...task, done: !item.done}: item
+    return (newTaskStatus)
+    })
+    SetTaskItems(toggle)
+  }
+  
   return (
     <>
       {/* <Margenes /> */}
@@ -55,7 +56,8 @@ export function ToDo() {
           Task for Today
         </h1>
         <TaskCreator createNewTask={createNewTask} />
-        <TaskList taskItems={taskItems} deleteTask={deleteTask} />
+        <TaskList defaultTasks={defaultTasks} taskItems={taskItems}
+         deleteTask={deleteTask} toggleTask={toggleTask}/>
       </div>
     </>
   );
