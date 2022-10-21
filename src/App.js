@@ -11,6 +11,7 @@ import { TutorialReact0 } from "./estudioConJonmircha/tutorialReact0";
 import { Contador } from "./estudioConJonmircha/contadorHook";
 import { FilterableProductTable } from "./estudioConJonmircha/pensandoEnReact/filterableProductTable";
 import dataProducts from "./estudioConJonmircha/assets/dataProducts.json";
+import {Calculator} from "./estudioConJonmircha/calculadorTemperatura/calculatorMain";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
           path="/mock"
           element={<FilterableProductTable dataProducts={dataProducts} />}
         />
+        <Route path="/calctemp" element={<Calculator/>}/>
       </Routes>
     </div>
   );
