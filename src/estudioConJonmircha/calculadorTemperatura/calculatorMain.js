@@ -1,29 +1,10 @@
-import { TemperatureInput } from "./temperatureInput";
-import { BoilingVerdict } from "./boilingVerdict";
-
-import { setState } from "react";
-
-function toCelsius(fahrenheit) {
-  return ((fahrenheit - 32) * 5) / 9;
-}
-
-function toFahrenheit(celsius) {
-  return (celsius * 9) / 5 + 32;
-}
-
-function tryConvert(temperature, convert) {
-  const input = parseFloat(temperature);
-  if (Number.isNaN(input)) {
-    return "";
-  }
-  const output = convert(input);
-  const rounded = Math.round(output * 1000) / 1000;
-  return rounded.toString();
-}
+import { TemperatureInput } from "./temperatureInput.js";
+import { BoilingVerdict } from "./boilingVerdict.js";
+import { useState } from "react";
 
 export function Calculator() {
-  const [temperature, setTemperature] = setState("");
-  const [scale, setScale] = setState("c");
+  const [temperature, setTemperature] = useState("");
+  const [scale, setScale] = useState("c");
 
   const handleCelsiusChange = (temperature) => {
     setTemperature(temperature);
@@ -35,6 +16,19 @@ export function Calculator() {
     setScale("f");
   };
 
+  function tryConvert(temperature, convert) {
+    const input = parseFloat(temperature);
+    if (Number.isNaN(input)) {
+      return "";
+    }
+    const output = convert(input);
+    const rounded = Math.round(output * 1000) / 1000;
+    return rounded.toString();
+  }
+
+  const toCelsius = (fahrenheit) => ((fahrenheit - 32) * 5) / 9;
+  const toFahrenheit = (celsius) => (celsius * 9) / 5 + 32;
+
   const celsius =
     scale === "f" ? tryConvert(temperature, toCelsius) : temperature;
   const fahrenheit =
@@ -43,12 +37,12 @@ export function Calculator() {
   return (
     <div>
       <TemperatureInput
-        scale="c"
+        scale={scale}
         temperature={celsius}
         onTemperatureChange={handleCelsiusChange}
       />
       <TemperatureInput
-        scale="f"
+        scale={scale}
         temperature={fahrenheit}
         onTemperatureChange={handleFahrenheitChange}
       />
@@ -56,5 +50,3 @@ export function Calculator() {
     </div>
   );
 }
-
-
