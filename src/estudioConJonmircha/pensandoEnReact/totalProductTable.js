@@ -4,10 +4,10 @@ export function TotalProductTable({ dataProducts, inStockOnly, filterText}) {
 
   let types
   const tables = []
-  
+
   types = dataProducts.map((product) => product.category);
   types = [...new Set(types)];
-  
+
   for(let type of types){
     tables.push(dataProducts.filter((elem) => elem.category === type))
   }
@@ -18,8 +18,8 @@ export function TotalProductTable({ dataProducts, inStockOnly, filterText}) {
 
   return (
     <>
-      <div className="bg-green-400 mx-48">
-        <div className="flex justify-evenly text-slate-800">
+      <div className="bg-transparent mx-48">
+        <div className="flex justify-evenly text-white">
           <h1>Name</h1>
           <h1>Price</h1>
         </div>
