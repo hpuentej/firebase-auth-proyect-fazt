@@ -12,6 +12,8 @@ import { Contador } from "./estudioConJonmircha/contadorHook";
 import { FilterableProductTable } from "./estudioConJonmircha/pensandoEnReact/filterableProductTable";
 import dataProducts from "./estudioConJonmircha/assets/dataProducts.json";
 import {Calculator} from "./estudioConJonmircha/calculadorTemperatura/calculatorMain";
+import {RelojHooks} from './estudioConJonmircha/relojHooks'
+// import {Pruebas} from './estudioConJonmircha/pruebas'
 
 function App() {
   return (
@@ -39,6 +41,8 @@ function App() {
           element={<FilterableProductTable dataProducts={dataProducts} />}
         />
         <Route path="/calctemp" element={<Calculator/>}/>
+        <Route path="/reloj" element={<RelojHooks/>}/>
+        {/* <Route path="/pruebas" element={<Pruebas/>}/> */}
       </Routes>
     </div>
   );

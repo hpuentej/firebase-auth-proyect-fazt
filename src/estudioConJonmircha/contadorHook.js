@@ -1,10 +1,15 @@
 import { useState } from "react";
 
-function Boton({ signo, handleClickOne }) {
+function Boton({signo, handleClickOne }) {
+
+  const handleClickOperation = () => {
+    handleClickOne(signo);
+  }
+
   return (
     <>
       <button
-        onClick={() => handleClickOne(signo)}
+        onClick={handleClickOperation}
         className="bg-cyan-800 rounded-lg p-1"
       >
         {" "}
@@ -17,19 +22,27 @@ function Boton({ signo, handleClickOne }) {
 export function Contador() {
   const [contador, setContador] = useState(0);
 
+  const sumar = () => setContador(contador + 1)
+  const restar = () => setContador(contador - 1)
+
+  const signo = {
+    sumar: "+",
+    restar: "-",
+  };
+
   const handleClickOne = (oper) => {
-    if (oper === "MAS 1") {
-      setContador(contador + 1);
-    } else if (oper === "MENOS 1") {
-      setContador(contador - 1);
+    if (oper === "+") {
+      sumar()
+    } else if (oper === "-") {
+      restar()
     }
   };
 
   return (
     <>
       <h1>{contador}</h1>
-      <Boton signo="MAS 1" handleClickOne={handleClickOne} />
-      <Boton signo="MENOS 1" handleClickOne={handleClickOne} />
+      <Boton signo={signo.sumar} handleClickOne={handleClickOne} />
+      <Boton signo={signo.restar} handleClickOne={handleClickOne} />
     </>
   );
 }
