@@ -5,27 +5,20 @@ function Reloj({ hora }) {
 }
 
 export function RelojHooks() {
-  const [hora, setHora] = useState(new Date().toLocaleTimeString());
+  const [hora, setHora] = useState(null);
   const [visible, setVisible] = useState(false);
 
-  let temporizador = null;
-
-  const tictac = () => {
-    temporizador = setInterval(
-      () => setHora(new Date().toLocaleTimeString()),
-      1000
-    );
-  };
-
-  const iniciar = () => {
-    tictac();
-    setVisible(true);
-  };
-
-  const detener = () => {
-    clearInterval(temporizador);
-    setVisible(false);
-  };
+  useEffect(() => {
+    let temporizador;
+    if (visible) {
+      setHora(new Date().toLocaleTimeString())
+      temporizador = setInterval(() => setHora(new Date().toLocaleTimeString()), 1000 );
+    }
+    return () => {
+      console.log("Fase de desmontaje");
+      clearInterval(temporizador);
+    }
+  }, [visible])
 
   return (
     <>
@@ -35,10 +28,10 @@ export function RelojHooks() {
       <div className="bg-teal-700 mb-3 mx-48">
         {visible ? <Reloj hora={hora} /> : <h1>Aquí irá el Reloj</h1>}
       </div>
-      <button onClick={iniciar} className="px-3 bg-rose-300 mr-2 rounded-md">
+      <button onClick={() => setVisible(true)} className="px-3 bg-rose-300 mr-2 rounded-md">
         Iniciar
       </button>
-      <button onClick={detener} className="px-3 bg-rose-300 rounded-md mb-5">
+      <button onClick={() => setVisible(false)} className="px-3 bg-rose-300 rounded-md mb-5">
         Detener
       </button>
     </>

@@ -1,4 +1,3 @@
-import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import { Register } from "./components/Register";
 import { Login } from "./components/Login";
@@ -13,7 +12,8 @@ import { FilterableProductTable } from "./estudioConJonmircha/pensandoEnReact/fi
 import dataProducts from "./estudioConJonmircha/assets/dataProducts.json";
 import {Calculator} from "./estudioConJonmircha/calculadorTemperatura/calculatorMain";
 import {RelojHooks} from './estudioConJonmircha/relojHooks'
-// import {Pruebas} from './estudioConJonmircha/pruebas'
+import {UsoUseEffect} from './estudioConJonmircha/LuisCabreraHooks/pruebas'
+import {FetchCard} from './estudioConJonmircha/LuisCabreraHooks/fetchCard'
 
 function App() {
   return (
@@ -42,7 +42,8 @@ function App() {
         />
         <Route path="/calctemp" element={<Calculator/>}/>
         <Route path="/reloj" element={<RelojHooks/>}/>
-        {/* <Route path="/pruebas" element={<Pruebas/>}/> */}
+        <Route path="/pruebas" element={<UsoUseEffect/>}/>
+        <Route path="/fetchCard" element={<FetchCard />} />
       </Routes>
     </div>
   );
