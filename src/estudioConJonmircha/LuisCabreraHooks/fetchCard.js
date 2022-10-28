@@ -36,8 +36,6 @@ export function FetchCard(){
       })
   }
 
-
-
   useEffect(() => { 
     updateUser() 
   }, [])
@@ -49,11 +47,19 @@ export function FetchCard(){
           setPosts(newPosts)
       })
     }
-    
+
     if(user?.id){
       updatePosts()
     }
   }, [user])
+
+  const postList = posts.map((post) => {
+    return (
+      <li key={post.id}>
+        <p>{post.name}</p>
+      </li>
+    )
+  })
 
   return (
     <>
@@ -64,8 +70,7 @@ export function FetchCard(){
       <h1>{user.email}</h1>
       <h1>Posts - user: {user.id}</h1>
       <ul>
-        {posts.map((post) => <li key={post.id}>{post.title}</li>)}
-        {console.log('hola mundo')}
+        {postList}
       </ul>
 
     </>

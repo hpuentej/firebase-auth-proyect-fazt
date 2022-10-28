@@ -36,13 +36,13 @@ export function TutorialReact0() {
 
   useEffect(() => {
     const getPokemons = async (url) => {
-      let res = await fetch(url),
-        json = await res.json();
+      let res = await fetch(url)
+      const json = await res.json()
       //console.log(json);
 
       json.results.forEach(async (el) => {
-        let res = await fetch(el.url),
-          json = await res.json();
+        let res = await fetch(el.url)
+        const json = await res.json();
 
         //console.log(json);
         let pokemon = {
