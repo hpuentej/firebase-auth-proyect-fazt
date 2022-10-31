@@ -4,20 +4,18 @@ export const MediaPlayer = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef();
 
-  const handleVideo = () => {    
+  const handleVideo = () => {
     const video = videoRef.current;
-    isPlaying ? video.pause() : video.play()
-    setIsPlaying(!isPlaying)
+    isPlaying ? video.pause() : video.play();
+    setIsPlaying(!isPlaying);
   };
 
   return (
     <>
-      <video onClick={handleVideo} width="400" ref={videoRef}>
+      <video onClick={handleVideo} width="400" ref={videoRef} controls loop>
         <source src="videos/Cheetah.mp4" type="video/mp4" />
       </video>
-      <button onClick={handleVideo}>Play</button>
+      <button onClick={handleVideo}>{!isPlaying ? "Play" : "Stop"}</button>
     </>
   );
 };
-
-

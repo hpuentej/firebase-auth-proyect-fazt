@@ -23,7 +23,13 @@ import {CopyApp} from "./estudioConJonmircha/LuisCabreraHooks/useRef/copyApp"
 import {MediaPlayer} from "./estudioConJonmircha/LuisCabreraHooks/useRef/mediaPlayer"
 import {ScrollAnimation} from "./estudioConJonmircha/LuisCabreraHooks/useRef/scrollAnimation"
 import {RenderApp} from "./estudioConJonmircha/LuisCabreraHooks/useRef/renderApp"
+import {LoadingApp} from "./estudioConJonmircha/LuisCabreraHooks/useRef/loading App/loadingApp"
 import {PokeApi} from "./estudioConJonmircha/pokemonApi/pokeApi"
+import {NewApp} from "./estudioConJonmircha/LuisCabreraHooks/Memorize/newApp"
+import { CustomContador } from "./estudioConJonmircha/LuisCabreraHooks/custom hooks/customContador";
+import { CustomTodoApp } from "./estudioConJonmircha/LuisCabreraHooks/custom hooks/customTodoApp";
+import { BreakingBadApi } from "./estudioConJonmircha/LuisCabreraHooks/breakingBadApi/BreakingBadApi";
+import { DogsApi } from "./estudioConJonmircha/LuisCabreraHooks/dogsApp/DogsApi"
 
 function App() {
   const [show, setShow] = useState(false);
@@ -79,7 +85,13 @@ function App() {
         <Route path="/mediaPlayer" element={<MediaPlayer/>} />
         <Route path="/scroll" element={<ScrollAnimation/>} />
         <Route path="/renderapp" element={<RenderApp/>} />
+        <Route path="/loading" element={<LoadingApp/>}/>
         <Route path="/pokemon" element={<PokeApi/>} />
+        <Route path="/newApp" element={<NewApp/>} />
+        <Route path="/customContador" element={<CustomContador/>}/>
+        <Route path="/customTodoApp" element={<CustomTodoApp/>}/>
+        <Route path="/breakingBad" element={<BreakingBadApi/>} />
+        <Route path="/dogsApi" element={<DogsApi/>}/>
       </Routes>
     </div>    
   );

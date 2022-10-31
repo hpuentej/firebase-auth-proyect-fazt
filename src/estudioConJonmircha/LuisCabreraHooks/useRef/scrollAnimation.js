@@ -8,13 +8,13 @@ export const ScrollAnimation = () => {
     const handleScroll = () => {
       const div = divRef.current;
       const { y } = div.getBoundingClientRect();
-      console.log(div.getBoundingClientRect())
-      // console.log(y);
+      // console.log(div.getBoundingClientRect()) 
+      console.log(y);
       const backgroundColor = y <= 0 ? "lightgreen" : "pink";
       setBackground(backgroundColor);
     };
-    window.addEventListener("scroll", handleScroll);
 
+    window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
