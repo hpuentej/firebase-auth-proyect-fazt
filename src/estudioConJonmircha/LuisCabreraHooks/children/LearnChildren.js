@@ -11,18 +11,31 @@ export const LearnChildren = () => {
     <>
       <div>
         <h1 className="text-3xl mb-3">Childrens</h1>
-        <button onClick={openLoginModal} className="mr-2 p-2 bg-slate-300 rounded-md">
+        <button
+          onClick={() =>
+            !isChatModalOpen && !isGalleryModalOpen && openLoginModal()
+          }
+          className="mr-2 p-2 bg-slate-300 rounded-md"
+        >
           {isLoginModalOpen ? "Close Login Modal" : "Open Login Modal"}
         </button>
 
-        <button onClick={openChatModal} className="mr-2 p-2 bg-slate-300 rounded-md">
+        <button
+          onClick={() =>
+            !isLoginModalOpen && !isGalleryModalOpen && openChatModal()
+          }
+          className="mr-2 p-2 bg-slate-300 rounded-md"
+        >
           {isChatModalOpen ? "Close Chat Modal" : "Open Chat Modal"}
         </button>
 
-        <button onClick={openGalleryModal} className="p-2 bg-slate-300 rounded-md">
+        <button
+          onClick={() =>
+            !isLoginModalOpen && !isChatModalOpen && openGalleryModal()}
+          className="p-2 bg-slate-300 rounded-md"
+        >
           {isGalleryModalOpen ? "Close Gallery Modal" : "Open Gallery Modal"}
         </button>
-
 
         <Modal
           isModalOpen={isLoginModalOpen}
@@ -52,7 +65,6 @@ export const LearnChildren = () => {
         <GalleryModal
           isModalOpen={isGalleryModalOpen}
           closeModal={closeGalleryModal}
-          // title={"Gallery"}
         />
       </div>
     </>
