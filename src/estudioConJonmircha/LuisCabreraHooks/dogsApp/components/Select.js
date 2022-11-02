@@ -1,35 +1,26 @@
-import { useState, useEffect } from "react";
-import { getBreeds } from "../helpers/getBreeds";
+import { Error } from "./Error";
 
-const testBreeds = [
-  { id: 1, name: "Pequines" },
-  { id: 2, name: "Labrador" },
-  { id: 3, name: "Lobo" },
-];
-
-export const Select = () => {
-  const [breeds, setBreeds] = useState(testBreeds);
-
-  useEffect(() => {
-    updateBreeds()
-  }, [])
-
-  const updateBreeds = () => {
-    getBreeds()
-      .then((breeds) => {
-        setBreeds(breeds)
-      })
-  }
-
+export const Select = ({ breeds, updateDogImage, error, loading }) => {
   return (
     <>
-      <select onChange = {() => alert('Hola Hans  ')}>
-        {breeds.map((breed) => (
-          <option key={breed.id} value={breed.id}>
-            {breed.name}
-          </option>
-        ))}
-      </select>
+      {breeds ? (
+        <select
+          className="p-2 mb-5 shadow-md text-center appearance-none
+                        outline-slate-400 outline "
+          onChange={(e) => {
+            updateDogImage(e.target.value);
+          }}
+        >
+          <option value={0}>Choose a breed of dog</option>
+          {breeds.map((breed) => (
+            <option key={breed.id} value={breed.id}>
+              {breed.name}
+            </option>
+          ))}
+        </select>
+      ) : (
+        error && <Error error={'Error en las razas'} />
+      )}
     </>
   );
 };

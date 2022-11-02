@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+}
+
+.modal {
+  display: none;
+  z-index: 100;
+  background-color: rgba(21, 94,117,1);
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  /* margin-left: auto; */
+  /* margin-right: auto; */
+  top: 50;
+  left: 0;
+}
+
+.modal__dialog {
+  background-color: #888;
+  padding: 2rem;
+  width: 20rem;
+  height: 30rem;
+}
+
+.modal-open {
+  display: flex;
+}

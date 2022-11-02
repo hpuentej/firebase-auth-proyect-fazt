@@ -30,6 +30,7 @@ import { CustomContador } from "./estudioConJonmircha/LuisCabreraHooks/custom ho
 import { CustomTodoApp } from "./estudioConJonmircha/LuisCabreraHooks/custom hooks/customTodoApp";
 import { BreakingBadApi } from "./estudioConJonmircha/LuisCabreraHooks/breakingBadApi/BreakingBadApi";
 import { DogsApi } from "./estudioConJonmircha/LuisCabreraHooks/dogsApp/DogsApi"
+import { LearnChildren } from "./estudioConJonmircha/LuisCabreraHooks/children/LearnChildren"
 
 function App() {
   const [show, setShow] = useState(false);
@@ -92,6 +93,7 @@ function App() {
         <Route path="/customTodoApp" element={<CustomTodoApp/>}/>
         <Route path="/breakingBad" element={<BreakingBadApi/>} />
         <Route path="/dogsApi" element={<DogsApi/>}/>
+        <Route path="/children" element={<LearnChildren/>}/>
       </Routes>
     </div>    
   );
