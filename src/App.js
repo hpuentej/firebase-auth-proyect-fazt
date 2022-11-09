@@ -14,29 +14,34 @@ import { FilterableProductTable } from "./estudioConJonmircha/pensandoEnReact/fi
 import dataProducts from "./estudioConJonmircha/assets/dataProducts.json";
 import { Calculator } from "./estudioConJonmircha/calculadorTemperatura/calculatorMain";
 import { RelojHooks } from "./estudioConJonmircha/relojHooks";
-import { CicloDeVida } from "./estudioConJonmircha/LuisCabreraHooks/cicloDeVidaHooks";
-import { FetchCard } from "./estudioConJonmircha/LuisCabreraHooks/fetchCard";
-import { ResizeApp } from "./estudioConJonmircha/LuisCabreraHooks/resizeApp";
-import { ConditionalApp } from "./estudioConJonmircha/LuisCabreraHooks/conditionalApp";
-import {FocusApp} from "./estudioConJonmircha/LuisCabreraHooks/useRef/focusApp"
-import {CopyApp} from "./estudioConJonmircha/LuisCabreraHooks/useRef/copyApp"
-import {MediaPlayer} from "./estudioConJonmircha/LuisCabreraHooks/useRef/mediaPlayer"
-import {ScrollAnimation} from "./estudioConJonmircha/LuisCabreraHooks/useRef/scrollAnimation"
-import {RenderApp} from "./estudioConJonmircha/LuisCabreraHooks/useRef/renderApp"
-import {LoadingApp} from "./estudioConJonmircha/LuisCabreraHooks/useRef/loading App/loadingApp"
+import { CicloDeVida } from "./estudioConJonmircha/LearnHooks/cicloDeVidaHooks";
+import { FetchCard } from "./estudioConJonmircha/LearnHooks/fetchCard";
+import { ResizeApp } from "./estudioConJonmircha/LearnHooks/resizeApp";
+import { ConditionalApp } from "./estudioConJonmircha/LearnHooks/conditionalApp";
+import {FocusApp} from "./estudioConJonmircha/LearnHooks/useRef/focusApp"
+import {CopyApp} from "./estudioConJonmircha/LearnHooks/useRef/copyApp"
+import {MediaPlayer} from "./estudioConJonmircha/LearnHooks/useRef/mediaPlayer"
+import {ScrollAnimation} from "./estudioConJonmircha/LearnHooks/useRef/scrollAnimation"
+import {RenderApp} from "./estudioConJonmircha/LearnHooks/useRef/renderApp"
+import {LoadingApp} from "./estudioConJonmircha/LearnHooks/useRef/loading App/loadingApp"
 import {PokeApi} from "./estudioConJonmircha/pokemonApi/pokeApi"
-import {NewApp} from "./estudioConJonmircha/LuisCabreraHooks/Memorize/newApp"
-import { CustomContador } from "./estudioConJonmircha/LuisCabreraHooks/custom hooks/customContador";
-import { CustomTodoApp } from "./estudioConJonmircha/LuisCabreraHooks/custom hooks/customTodoApp";
-import { BreakingBadApi } from "./estudioConJonmircha/LuisCabreraHooks/breakingBadApi/BreakingBadApi";
-import { DogsApi } from "./estudioConJonmircha/LuisCabreraHooks/dogsApp/DogsApi"
-import { LearnChildren } from "./estudioConJonmircha/LuisCabreraHooks/children/LearnChildren"
+import {NewApp} from "./estudioConJonmircha/LearnHooks/Memorize/newApp"
+import { CustomContador } from "./estudioConJonmircha/LearnHooks/custom hooks/customContador";
+import { CustomTodoApp } from "./estudioConJonmircha/LearnHooks/custom hooks/customTodoApp";
+import { BreakingBadApi } from "./estudioConJonmircha/LearnHooks/breakingBadApi/BreakingBadApi";
+import { DogsApi } from "./estudioConJonmircha/LearnHooks/dogsApp/DogsApi"
+import { LearnChildren } from "./estudioConJonmircha/LearnHooks/children/LearnChildren"
+import { MovieApp } from "./estudioConJonmircha/LearnHooks/useContext/MovieApp"
+import { Position } from "./learnCSS/Position"
+import { Formulario } from "./estudioConJonmircha/Formularios/Formulario";
+
 
 function App() {
   const [show, setShow] = useState(false);
 
   return (
-    <div className="container bg-cyan-800 text-black text-center overflow-hidden mx-auto">
+    <div className="bg-cyan-800 text-center overflow-hidden mx-auto pt-3 pb-4">
+    {/* <div> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
@@ -94,6 +99,9 @@ function App() {
         <Route path="/breakingBad" element={<BreakingBadApi/>} />
         <Route path="/dogsApi" element={<DogsApi/>}/>
         <Route path="/children" element={<LearnChildren/>}/>
+        <Route path="/movies" element={<MovieApp/>}/>
+        <Route path="/learnCSS" element={<Position/>}/>
+        <Route path="form" element={<Formulario/>} />
       </Routes>
     </div>    
   );

@@ -17,6 +17,7 @@ export const RenderApp = () => {
         type="text"
         value={text}
         onChange={(e) => setText(e.target.value)}
+        className="outline-none mb-2 rounded-sm px-1 py-0.5"
       />
       <h1 className="text-4xl font-semibold">
         {`Renders: ${rendersRef.current + 1}`}{" "}

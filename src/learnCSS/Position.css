@@ -1,0 +1,68 @@
+* {
+  box-sizing: border-box;
+}
+
+/* :root{
+  --bg-color: ;
+  --text-color: ;
+} */
+
+/* body {
+  background-color: hsl(180 30% 80% / 1);
+  font-family: "Roboto", sans-serif;
+} */
+
+.container{
+  text-align: center;
+}
+
+.button {
+  margin-right: 1rem;
+  padding: 0.5rem 1rem;
+  margin-top: 2rem;
+}
+
+.button--blue{
+  background-color: hsl(240 60% 60% / 0.8);
+  color: hsl(240 30% 20% / 1);
+}
+
+.button--red{
+  background-color: hsl(0 60% 60% / 0.8);
+  color: hsl(0 30% 20% / 1);
+}
+
+.button--orange{
+  background-color: hsl(30 60% 60% / 0.8);
+  color: hsl(120 30% 20% / 1);
+}
+
+.button--lightBlue{
+  background-color: transparent;
+  color: hsl(240 60% 60% / 0.8);
+  border: 1.5px solid hsl(240 60% 60% / 0.8);  
+}
+
+.button--lightRed{
+  background-color: transparent;
+  color: hsl(0 60% 60% / 0.8);
+  border: 1.5px solid hsl(0 60% 60% / 0.8);
+}
+
+
+.button--lightOrange{
+  background-color: transparent;
+  color: hsl(30 60% 60% / 0.8);
+  border: 1.5px solid hsl(30 60% 60% / 0.8);
+}
+
+
+
+
+
+
+
+
+
+
+

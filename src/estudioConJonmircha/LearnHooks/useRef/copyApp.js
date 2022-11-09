@@ -11,7 +11,7 @@ export const CopyApp = () => {
   const handleCopy = async () => {
     const input = inputRef.current;
     input.select();
-    // document.execCommand("copy")
+    // document.execCommand("copy") 
     await navigator.clipboard.writeText(input.value);
 
     setCopied(true);

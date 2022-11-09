@@ -12,7 +12,7 @@ export function FilterableProductTable({ dataProducts }) {
 
   const handleChangeInput = (event) => {
     setFilterText(event.target.value);
-    console.log(event.target.value);
+    // console.log(event.target.value);
   };
 
   return (
