@@ -10,7 +10,7 @@ export const UserProvider = ({children}) => {
       id: 2,
       name: "Hans Puente",
       email: "hpuentej@uni.pe",
-      favoriteMovie: [1, 2],
+      favoriteMovies: [1, 2],
     });
   };
 
@@ -19,9 +19,21 @@ export const UserProvider = ({children}) => {
   };
 
   const toggleFavoriteMovie = (movieId) => {
-    console.log(movieId)
+    if(user && user.favoriteMovies.includes(movieId)){
+      setUser({
+        ...user,
+        favoriteMovies: user.favoriteMovies.filter((elem) => elem!==movieId)
+      })
+    } else if(user && !user.favoriteMovies.includes(movieId)){
+      setUser({
+        ...user,
+        favoriteMovies: [...user.favoriteMovies, movieId]
+      })
+    } else {
+      alert("No user detected")
+    }
   }
-    
+
   return(
     <>
       <UserContext.Provider value={{ user, login, logout, toggleFavoriteMovie }}>

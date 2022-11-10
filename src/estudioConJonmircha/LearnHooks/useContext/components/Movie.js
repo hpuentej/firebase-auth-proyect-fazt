@@ -4,16 +4,16 @@ import UserContext from "../contexts/userContext";
 
 export const Movie = ({ movie }) => {
 
-  const {toggleFavoriteMovie} = useContext(UserContext) 
+  const {user, toggleFavoriteMovie} = useContext(UserContext)
 
   const imgStyles = {
     height: "16.25rem",
     width: "100%",
     objectFit: "cover",
     objectPosition: "left",
-  };
+  }; 
 
-  const isFavorite = true;
+  const isFavorite = user && user.favoriteMovies.includes(movie.id)
 
   return (
     <div className="px-2 ">
