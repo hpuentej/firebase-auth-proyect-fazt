@@ -34,7 +34,11 @@ import { LearnChildren } from "./estudioConJonmircha/LearnHooks/children/LearnCh
 import { MovieApp } from "./estudioConJonmircha/LearnHooks/useContext/MovieApp"
 import { Position } from "./learnCSS/Position"
 import { Formulario } from "./estudioConJonmircha/Formularios/Formulario";
-
+import { TwoApis } from "./estudioConJonmircha/LearnHooks/Task1/twoApis";
+import { ContadorReducer } from "./estudioConJonmircha/LearnHooks/UseReducer/Contador/ContadorReducer"
+import { TodoAppReducer } from "./estudioConJonmircha/LearnHooks/UseReducer/Todo/TodoAppReducer"
+import { ProductReducer } from "./estudioConJonmircha/LearnHooks/UseReducer/Producto/ProductReducer"
+import ReduxApp from "./estudioConJonmircha/Jon-Redux/ReduxApp";
 
 function App() {
   const [show, setShow] = useState(false);
@@ -101,7 +105,12 @@ function App() {
         <Route path="/children" element={<LearnChildren/>}/>
         <Route path="/movies" element={<MovieApp/>}/>
         <Route path="/learnCSS" element={<Position/>}/>
-        <Route path="form" element={<Formulario/>} />
+        <Route path="/form" element={<Formulario/>} />
+        <Route path="/twoApis" element={<TwoApis/>} />
+        <Route path="/contadorReducer" element={<ContadorReducer/>} />
+        <Route path="/todoAppReducer" element={<TodoAppReducer/>}  />
+        <Route path="/productReducer" element={<ProductReducer/>}/>
+        <Route path="/redux" element={<ReduxApp/>} />
       </Routes>
     </div>    
   );

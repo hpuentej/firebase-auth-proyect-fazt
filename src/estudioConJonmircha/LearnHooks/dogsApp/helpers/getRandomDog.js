@@ -8,7 +8,7 @@ export const getRandomDog = async (imageId, breeds) => {
   const res = await fetch(url);
   const [dogImage] = await res.json();
   
-  const { url: urlX } = dogImage;  
+  const { url: urlX } = dogImage;
 
   let [breedName] =
     breeds !== null

@@ -14,7 +14,7 @@ export function DogsApi() {
   useEffect(() => {
     updateBreeds();
   }, []);
-
+  
   const updateDogImage = useCallback(
     (imageId) => {
       setLoading(true);
