@@ -1,11 +1,8 @@
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import TaskForm from "./TaskForm";
 import TaskList from "./TaskList";
 
-const TodoApp = () => {
-
-  const taskState = useSelector((state) => state.tasks);
-  console.log(taskState);
+const TodoApp = () => {  
 
   return (
     <div>

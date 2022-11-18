@@ -1,7 +1,0 @@
-// Counter
-
-
-// Shopping cart
-
-
-// CRUD
