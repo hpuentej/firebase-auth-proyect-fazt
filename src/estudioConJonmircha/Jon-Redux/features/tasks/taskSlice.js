@@ -24,13 +24,21 @@ const taskSlice = createSlice({
     addTask: (state, action) => {
       state.value.push(action.payload)
     },
-    deleteTask: (state, action) => {
-      state.value.splice(action.payload, 1)
+    deleteTask: (state, action) => { // action.payload = id, state.value = array of tasks
+      const [taskFound] = state.value.filter(task => task.id === action.payload)
+      if(taskFound) {
+        const index = state.value.indexOf(taskFound)
+        state.value.splice( index,1)
+        // state.value = state.value.filter((task) => task.id !== action.payload)
+      }
     },
+    editTask: (state, action) => {
+      // state.value
+    }
   }
 })
 
-export const { addTask, deleteTask } = taskSlice.actions
+export const { addTask, editTask,deleteTask } = taskSlice.actions
 export default taskSlice.reducer;
 
 

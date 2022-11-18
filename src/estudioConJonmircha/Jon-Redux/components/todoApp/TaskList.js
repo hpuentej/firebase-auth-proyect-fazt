@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { deleteTask  } from "../../features/tasks/taskSlice"
+import { editTask, deleteTask  } from "../../features/tasks/taskSlice"
 
 const TaskList = () => {
   // const dispatch = useDispatch();
@@ -7,8 +7,12 @@ const TaskList = () => {
   const dispatch = useDispatch();  
 
   const handleDelete = (id) => {
-    const index = tasksState.findIndex((task) => task.id === id);
-    dispatch(deleteTask(index));
+    // const index = tasksState.findIndex((task) => task.id === id);
+    dispatch(deleteTask(id));
+  }
+
+  const handleEdit = (id) => {
+    dispatch(editTask(id))
   }
 
   return (
@@ -19,6 +23,7 @@ const TaskList = () => {
           <li key={task.id}>
             <h1> {task.title} </h1>
             <p> {task.description}</p>
+            <button onClick={() => handleEdit(task.id)} >Edit</button>
             <button onClick={() => handleDelete(task.id)}>Delete</button>
           </li>
         ))}
