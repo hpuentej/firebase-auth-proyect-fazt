@@ -33,13 +33,27 @@ const taskSlice = createSlice({
       }
     },
     editTask: (state, action) => {
-      // state.value
+      const [taskFound] = state.value.filter((task) => task.id === action.payload.id)
+      const index = state.value.indexOf(taskFound)
+      const taskEdited = {...(action.payload)}
+      state.value.splice(index,1,taskEdited)
+
+      console.log(action.payload)
+      
     }
   }
 })
 
-export const { addTask, editTask,deleteTask } = taskSlice.actions
+export const { addTask, editTask, deleteTask } = taskSlice.actions
 export default taskSlice.reducer;
 
 
 
+
+
+
+
+
+
+
+// const [taskFound] = state.value.filter(task => task.id === action.payload.id)

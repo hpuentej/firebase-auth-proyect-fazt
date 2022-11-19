@@ -1,29 +1,37 @@
 import { useSelector, useDispatch } from "react-redux";
-import { editTask, deleteTask  } from "../../features/tasks/taskSlice"
+import { deleteTask } from "../../features/tasks/taskSlice";
+import { Link } from "react-router-dom";
 
 const TaskList = () => {
   // const dispatch = useDispatch();
   const tasksState = useSelector((state) => state.tasks.value);
-  const dispatch = useDispatch();  
+  const dispatch = useDispatch();
 
   const handleDelete = (id) => {
-    // const index = tasksState.findIndex((task) => task.id === id);
     dispatch(deleteTask(id));
-  }
+  };
 
-  const handleEdit = (id) => {
-    dispatch(editTask(id))
-  }
+  // const handleEdit = (id) => {
+  //   dispatch(editTask(id));
+  // };
 
   return (
     <div>
-      <h1>TaskList</h1>
+      <header>
+        <h1>Tasks {tasksState.length}</h1>
+        <Link to="create-task">
+          <button>Create Task</button>
+        </Link>
+      </header>
       <ul>
         {tasksState.map((task) => (
           <li key={task.id}>
             <h1> {task.title} </h1>
             <p> {task.description}</p>
-            <button onClick={() => handleEdit(task.id)} >Edit</button>
+            <Link to={`edit-task/${task.id}`}>
+              {/* <button onClick={() => handleEdit(task.id)}>Edit</button> */}
+              <button>Edit</button>
+            </Link>
             <button onClick={() => handleDelete(task.id)}>Delete</button>
           </li>
         ))}

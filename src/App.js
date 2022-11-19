@@ -111,7 +111,7 @@ function App() {
         <Route path="/contadorReducer" element={<ContadorReducer/>} />
         <Route path="/todoAppReducer" element={<TodoAppReducer/>}  />
         <Route path="/productReducer" element={<ProductReducer/>}/>
-        <Route path="/redux" element={<ReduxApp/>} />
+        <Route path="/redux/*" element={<ReduxApp/>} />
       </Routes>
     </div>    
   );
